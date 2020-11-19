@@ -8,10 +8,17 @@
 //* 2. 支持取随机数使用Math.random() 获取随机数
 // * 但是好像很慢啊,怀疑是最后一步 object.keys慢
 
+// * 优化
+// * 1. 之前只有使用一个对象作为数据储存，这样会导致最红Object.keys耗时过长，所以加入数组
+// * 2. 数组保存数据，对象的键名为成员的值，键值为对应数组的下标
+// * 3. remove时，对象直接可以使用delete，数组则将需要删除项和最后一项交换位置，然后执行pop操作，同时修改交换储存在对象的下标
+// * 4. 最终取随机数时，使用位运算 | 0 ,比Math.floor更为高效
+
 /**
  * Initialize your data structure here.
  */
 var RandomizedSet = function () {
+  this.arr = []
   this.data = {}
 }
 
@@ -22,11 +29,12 @@ var RandomizedSet = function () {
  */
 RandomizedSet.prototype.insert = function (val) {
   // * 说明存在
-  if (this.data[val]) {
+  if (typeof this.data[val] !== "undefined") {
     return false
   }
 
-  this.data[val] = true
+  this.arr.push(val)
+  this.data[val] = this.arr.length - 1
   return true
 }
 
@@ -36,10 +44,14 @@ RandomizedSet.prototype.insert = function (val) {
  * @return {boolean}
  */
 RandomizedSet.prototype.remove = function (val) {
-  if (!this.data[val]) {
+  if (typeof this.data[val] === "undefined") {
     return false
   }
 
+  this.data[this.arr[this.arr.length - 1]] = this.data[val]
+  ;[this.arr[this.arr.length - 1], this.arr[this.data[val]]] = [this.arr[this.data[val]], this.arr[this.arr.length - 1]]
+
+  this.arr.pop()
   delete this.data[val]
 
   return true
@@ -50,13 +62,11 @@ RandomizedSet.prototype.remove = function (val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function () {
-  const dataIndexs = Object.keys(this.data)
+  if (this.arr.length === 0) return
 
-  if (dataIndexs.length === 0) return
+  const randomIndex = (Math.random() * this.arr.length) | 0
 
-  const randomIndex = Math.floor(Math.random() * dataIndexs.length)
-
-  return dataIndexs[randomIndex]
+  return this.arr[randomIndex]
 }
 
 /**
