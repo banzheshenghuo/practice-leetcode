@@ -28,3 +28,7 @@ let findLongestWord = function (s, d) {
 
   return find
 }
+
+var a = "bab"
+var b = ["ba", "ab"]
+console.log(findLongestWord(a, b))
