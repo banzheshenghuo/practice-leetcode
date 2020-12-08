@@ -14,7 +14,6 @@ function findContentChildren(g, s) {
   const sortedG = g.sort((a, b) => a - b)
   const sortedS = s.sort((a, b) => a - b)
 
-  let toal = 0
   let i = 0,
     j = 0
 
@@ -25,13 +24,12 @@ function findContentChildren(g, s) {
     if (gValue > sValue) {
       j++
     } else if (gValue <= sValue) {
-      toal++
       j++
       i++
     }
   }
 
-  return toal
+  return i
 }
 
 var a = [10, 9, 8, 7]
