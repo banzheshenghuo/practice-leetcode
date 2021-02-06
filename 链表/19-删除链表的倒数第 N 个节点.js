@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-29 08:18:50
- * @LastEditTime: 2021-01-29 13:30:40
+ * @LastEditTime: 2021-02-06 10:09:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /leetcode-javascript/19-删除链表的倒数第 N 个节点.js
@@ -13,7 +13,7 @@
 //  1. 无法判断哪一个节点是最后的节点，也就无法判断要删除的节点是哪一个？ 最简单的本办法就是遍历两遍，第一边计数，第二遍找到对应哪个节点
 //  2. 进阶使用一趟扫描，做倒是能做，但是会增加空间复杂度，使用空间代替时间，每一个节点都进行记录，然后扫描完后改变需要的节点的指向就行
 
-var ListNode = require("./工具/链表")
+var ListNode = require("../工具/链表")
 
 // 方案一
 var removeNthFromEnd = function (head, n) {
