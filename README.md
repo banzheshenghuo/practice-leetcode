@@ -67,6 +67,10 @@
 - 42：接雨水问题
 - [02.05. 链表求和 快手](https://leetcode-cn.com/problems/sum-lists-lcci/)
 
+## 树
+
+- 55-剑指-I 二叉树的深度 done
+
 ## DFS
 
 - 236-二叉树的最近公共祖先
