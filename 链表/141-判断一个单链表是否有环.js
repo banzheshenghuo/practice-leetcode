@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-13 09:21:54
- * @LastEditTime: 2021-02-13 10:12:02
+ * @LastEditTime: 2021-02-14 11:41:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /leetcode-javascript/链表/141-判断一个单链表是否有环.js
@@ -34,4 +34,22 @@ console.log(hasCycle(makeListNode([-21, 10, 17, 8, 4, 26, 5, 35, 33, -7, -16, 27
 // 节点的值可能相等，那就不能通过值相等来判断了，那我就继续打tag,看是遍历每一个节点快些还是双指针跳着快些
 // 可以用双指针，但是跨2步的不能打tag，他必须回来找慢的tag
 
-话说为什么要移动2个节点，而不是更多呢？
+// 话说为什么要移动2个节点，而不是更多呢？
+
+// * 后面又做了一次
+var hasCycle1 = function (head) {
+  if (!head) return false
+
+  let slow = head
+  let fast = head
+
+  while (fast && fast.next) {
+    slow = slow.next
+    fast = fast.next.next
+    if (slow === fast) {
+      return true
+    }
+  }
+
+  return false
+}
