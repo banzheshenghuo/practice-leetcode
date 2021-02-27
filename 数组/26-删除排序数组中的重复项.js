@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-17 09:04:18
- * @LastEditTime: 2021-02-17 09:41:41
+ * @LastEditTime: 2021-02-27 08:31:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /leetcode-javascript/数组/26-删除排序数组中的重复项.js
@@ -65,3 +65,27 @@ var removeDuplicates3 = function (nums) {
 
   return (nums.length = i + 1)
 }
+
+// ! 方案四
+// 使用哈希表，然后遍历数组，先查看元素是否在哈希表，如果出现则删除，如果没有则跳过并加入存入哈希表
+var removeDuplicates4 = function (nums) {
+  if (nums.length <= 1) return nums.length
+
+  const obj = {}
+
+  let i = 0
+  while (i < nums.length) {
+    if (obj[nums[i]]) {
+      nums.splice(i, 1)
+    } else {
+      obj[nums[i]] = true
+      i++
+    }
+  }
+
+  return nums.length
+}
+
+var result = removeDuplicates4([1, 2, 2])
+
+console.log(result)
