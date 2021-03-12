@@ -54,6 +54,44 @@ function partition(arr, left, right) {
   return index
 }
 
-quickSort.sortName = "快速排序"
-
 // module.exports = quickSort
+
+// function quickSort2(arr) {
+//   if (arr.length <= 1) return arr
+
+//   const mid = (arr.length / 2) | 0
+
+//   let leftArr = []
+//   let rightArr = []
+//   for (let i = 0; i < arr.length; i++) {
+//     if (i === mid) continue
+
+//     arr[i] > arr[mid] ? rightArr.push(arr[i]) : leftArr.push(arr[i])
+//   }
+
+//   return [...quickSort2(leftArr), arr[mid], ...quickSort2(rightArr)]
+// }
+
+module.exports = quickSort2
+
+// 快排 选择一个基准值，遍历集合将整个集合分为小于该基准值和大于该基准值，然后对获取的2个集合在进行快排，这是一个递归的过程
+
+function quickSort2(arr) {
+  if (arr.length <= 1) return arr
+
+  const mid = (arr.length / 2) | 0
+
+  let left = []
+  let right = []
+  for (let i = 0; i < arr.length; i++) {
+    if (i === mid) continue
+
+    if (arr[i] > arr[mid]) {
+      right.push(arr[i])
+    } else {
+      left.push(arr[i])
+    }
+  }
+
+  return [...quickSort2(left), arr[mid], ...quickSort2(right)]
+}

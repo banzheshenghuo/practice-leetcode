@@ -27,3 +27,24 @@ function bubbleSort(arr) {
 bubbleSort.sortName = "冒泡排序"
 
 // module.exports = bubbleSort
+
+// * 双层循环，对比前后2项，如果前一项比后一项小则交换位置
+function bubbleSort2(arr) {
+  if (arr.length <= 1) return arr
+
+  for (let i = 0; i < arr.length; i++) {
+    let tag = false
+    for (let j = 1; j < arr.length - i; j++) {
+      if (arr[j - 1] > arr[j]) {
+        tag = true
+        ;[arr[j - 1], arr[j]] = [arr[j], arr[j - 1]]
+      }
+    }
+
+    if (!tag) return arr
+  }
+
+  return arr
+}
+
+module.exports = bubbleSort2
