@@ -19,19 +19,17 @@ selectSort.sortName = "选择排序"
 
 //* 每次获取第i小的值，然后和数组上第i个元素进行交换
 function selectSort2(arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
+  if (arr.length <= 1) return arr
+
+  for (let i = 0; i < arr.length; i++) {
     let min = i
-    for (let j = i; j < arr.length; j++) {
-      if (arr[j] < arr[min]) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[min] > arr[j]) {
         min = j
       }
     }
-
-    const temp = arr[i]
-    arr[i] = arr[min]
-    arr[min] = temp
+    ;[arr[i], arr[min]] = [arr[min], arr[i]]
   }
-
   return arr
 }
 

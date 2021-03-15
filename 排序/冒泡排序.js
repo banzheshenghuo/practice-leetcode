@@ -33,15 +33,14 @@ function bubbleSort2(arr) {
   if (arr.length <= 1) return arr
 
   for (let i = 0; i < arr.length; i++) {
-    let tag = false
+    let isSorted = true
     for (let j = 1; j < arr.length - i; j++) {
       if (arr[j - 1] > arr[j]) {
-        tag = true
+        isSorted = false
         ;[arr[j - 1], arr[j]] = [arr[j], arr[j - 1]]
       }
     }
-
-    if (!tag) return arr
+    if (isSorted) return arr
   }
 
   return arr
