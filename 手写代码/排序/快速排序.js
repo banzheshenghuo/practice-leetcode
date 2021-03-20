@@ -1,5 +1,5 @@
-const swap = require("../工具/交换")
-const random = require("../工具/随机值")
+const swap = require("../../工具/交换")
+const random = require("../../工具/随机值")
 
 /**
  *

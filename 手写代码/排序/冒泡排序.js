@@ -1,4 +1,4 @@
-const swap = require("../工具/交换")
+const swap = require("../../工具/交换")
 /**
  * 冒泡排序
  * @param {number[]} arr

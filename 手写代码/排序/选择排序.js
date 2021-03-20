@@ -1,4 +1,4 @@
-const swap = require("../工具/交换")
+const swap = require("../../工具/交换")
 
 function selectSort(arr) {
   for (let i = 0; i < arr.length; i++) {
