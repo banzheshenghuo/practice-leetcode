@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-17 09:04:18
- * @LastEditTime: 2021-02-27 08:31:15
+ * @LastEditTime: 2021-03-22 10:19:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /leetcode-javascript/数组/26-删除排序数组中的重复项.js
@@ -86,6 +86,30 @@ var removeDuplicates4 = function (nums) {
   return nums.length
 }
 
-var result = removeDuplicates4([1, 2, 2])
+var result = removeDuplicates5([1, 2, 2, 3, 3, 4, 7])
 
 console.log(result)
+
+function removeDuplicates5(arr) {
+  if (!Array.isArray(arr) || arr.length <= 1) return arr
+
+  arr.sort((a, b) => a - b)
+
+  let i = 0
+  let j = 1
+
+  while (j < arr.length) {
+    if (arr[i] === arr[j]) {
+      j++
+    } else {
+      if (j - i != 1) {
+        arr[i + 1] = arr[j]
+      }
+      i++
+      j++
+    }
+  }
+
+  arr.length = i + 1
+  return arr
+}
