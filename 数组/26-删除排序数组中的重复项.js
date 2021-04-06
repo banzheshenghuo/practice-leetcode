@@ -95,21 +95,18 @@ function removeDuplicates5(arr) {
 
   arr.sort((a, b) => a - b)
 
-  let i = 0
-  let j = 1
+  let slow = 1
+  let fast = 1
 
-  while (j < arr.length) {
-    if (arr[i] === arr[j]) {
-      j++
-    } else {
-      if (j - i != 1) {
-        arr[i + 1] = arr[j]
-      }
-      i++
-      j++
+  while (fast < arr.length) {
+    if (arr[slow - 1] !== arr[fast]) {
+      arr[slow] = arr[fast]
+      slow++
     }
+    fast++
   }
 
-  arr.length = i + 1
-  return arr
+  arr.length = slow
+
+  return slow
 }
