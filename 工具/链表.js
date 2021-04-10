@@ -1,6 +1,6 @@
-function ListNode(val) {
-  this.val = val
-  this.next = null
+function ListNode(val, next) {
+  this.val = val === undefined ? 0 : val
+  this.next = next === undefined ? null : next
 }
 
 /**
@@ -23,3 +23,5 @@ function makeListNode(vals) {
 module.exports = ListNode
 
 module.exports.makeListNode = makeListNode
+
+module.exports.ListNode = ListNode
