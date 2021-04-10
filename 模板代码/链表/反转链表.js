@@ -106,12 +106,12 @@ function reverseByRecursion(head) {
 
 // * 递归反转前N个链表
 function reverseNByRecursion(head, n) {
-  if (head === null) return head
-
   if (n === 1) {
     reverseNByRecursion.successor = head.next
     return head
   }
+
+  if (head === null) return head
 
   const last = reverseNByRecursion(head.next, n - 1)
 
@@ -135,3 +135,5 @@ function reverseBetweenByRecursion(head, left, right) {
 
   return head
 }
+
+reverseNByRecursion(makeListNode([3, 5]), 2)
