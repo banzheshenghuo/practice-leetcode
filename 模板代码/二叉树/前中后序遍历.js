@@ -70,3 +70,43 @@ function inorderIterate(root) {
     }
   }
 }
+
+/**
+ * ! 后序遍历
+ * https://leetcode-cn.com/problems/binary-tree-postorder-traversal/submissions/
+ */
+
+// *postorder recursion
+function postorder(root) {
+  if (!root) return root
+
+  root.left && postorder(root.left)
+  root.right && postorder(root.right)
+
+  // !do something
+  console.log(root.val)
+}
+
+// * iteration
+// ! 没有标准写法，这里使用一种取巧方法，使用2个stack，
+// 第一个stack 存储 中右左 进行迭代，然后被stack2存储，所以stack2返过来就是左右中
+
+function postorderIteration(root) {
+  if (!root) return []
+
+  const stack1 = [root]
+  const stack2 = []
+
+  while (stack1.length) {
+    const node = stack1.pop()
+    stack2.push(node)
+
+    node.left && stack1.push(node.left)
+    node.right && stack1.push(node.right)
+  }
+
+  while (stack2.length) {
+    // ! do something
+    const node = stack2.pop()
+  }
+}
