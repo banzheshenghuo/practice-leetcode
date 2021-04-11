@@ -30,3 +30,43 @@ function preorderIteration() {
     currNode.left && stack.push(currNode.left)
   }
 }
+
+/**
+ * ! 中序遍历
+ * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/submissions/
+ */
+
+// * inorderRecur
+function inorderRecur(root) {
+  if (!root) return root
+
+  inorderRecur(root.left)
+  // ! do something
+  console.log(root.val)
+  inorderRecur(root.right)
+}
+
+// * inorderIterate
+function inorderIterate(root) {
+  if (!root) return root
+
+  let cur = root
+  const stack = []
+
+  while (stack.length || cur) {
+    // * 先将左子树入栈，直到叶子节点
+    while (cur) {
+      stack.push(cur)
+      cur = cur.left
+    }
+
+    // ! do something
+    const node = stack.pop()
+    console.log(node.val)
+
+    // * 遍历完左树节点，然后查看右树节点，有则入栈
+    if (node.right) {
+      cur = node.right
+    }
+  }
+}
