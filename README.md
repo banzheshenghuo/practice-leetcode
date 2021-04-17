@@ -82,6 +82,7 @@
 - 234-回文链表 done
 - 83-删除排序链表中的重复元素 doen
 - 82-删除排序链表中的重复元素-|| done
+- 86-分隔链表 done
 - 611：有效三角形的个数
 - 42：接雨水问题
 - [02.05. 链表求和 快手](https://leetcode-cn.com/problems/sum-lists-lcci/)
