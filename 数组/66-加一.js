@@ -42,3 +42,18 @@ var plusOne2 = function (digits) {
 
   return digits
 }
+
+var plusOne3 = function (digits) {
+  let i = digits.length - 1
+  while (i >= 0) {
+    if (digits[i] === 9) {
+      digits[i] = 0
+      i--
+    } else {
+      digits[i]++
+      return digits
+    }
+  }
+
+  return [1].concat(digits)
+}
