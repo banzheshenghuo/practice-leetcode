@@ -51,3 +51,34 @@ function intersection(arr1, arr2) {
 var arr1 = [1, 2, 3, 4]
 var arr2 = [1, 2, 3]
 console.log(intersection(arr1, arr2))
+
+// 这个声明的变量多，但是好理解些
+var intersection2 = function (nums1, nums2) {
+  let map1 = new Map()
+  let map2 = new Map()
+  let result = new Set()
+
+  let i = 0
+  let len = Math.max(nums1.length, nums2.length)
+
+  while (i < len) {
+    if (nums1[i] !== undefined) {
+      if (map2.has(nums1[i])) {
+        result.add(nums1[i])
+      } else {
+        map1.set(nums1[i], true)
+      }
+    }
+
+    if (nums2[i] !== undefined) {
+      if (map1.has(nums2[i])) {
+        result.add(nums2[i])
+      } else {
+        map2.set(nums2[i], true)
+      }
+    }
+    i++
+  }
+
+  return [...result]
+}
