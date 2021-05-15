@@ -19,7 +19,7 @@ for (let i = 10001; i < 50000; i++) {
 }
 
 function mapIntersection(arr1, arr2) {
-  console.time()
+  // console.time()
   let map = new Map()
   for (let i = 0; i < arr1.length; i++) {
     map.set(arr1[i], true)
@@ -32,14 +32,14 @@ function mapIntersection(arr1, arr2) {
       result.push(val)
     }
   }
-  console.timeEnd()
+  // console.timeEnd()
   return result
 }
 
 console.log("mapIntersection", mapIntersection(a, b))
 
 function pointIntersection(arr1, arr2) {
-  console.time()
+  // console.time()
   let i = 0
   let j = 0
 
@@ -68,12 +68,12 @@ function pointIntersection(arr1, arr2) {
     }
 
     if (val1 > val2Last || val2 > val1Last) {
-      console.timeEnd()
+      // console.timeEnd()
       return result
     }
   }
-  console.timeEnd()
+  // console.timeEnd()
   return result
 }
 
-console.log('pointIntersection', pointIntersection(a, b))
+console.log("pointIntersection", pointIntersection(a, b))

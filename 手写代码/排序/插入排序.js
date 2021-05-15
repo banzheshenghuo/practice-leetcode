@@ -30,15 +30,17 @@ function insertSort(arr) {
 
 module.exports = insertSort2
 
-// 将数组分为2组，一组是有序，一组是无序的，每次从无序集合中去一个元素，按照顺序插入到有序的集合中
-
+// 将数组分为2个区间，一个是有序，一个是无序的，每次从无序区间中去一个元素，按照顺序插入到有序的区间中
 function insertSort2(arr) {
   if (arr.length <= 1) return arr
 
   for (let i = 1; i < arr.length; i++) {
     let target = arr[i]
     let j = i - 1
+    // * 0-j 代表的是已经排序的区间，target代表本次需要加入排序的元素
+    // * j >= 0 是当j=== -1 时推出循环，表示本次的target是最小的，然后在 arr[j + 1] = target 也就是 arr[0] = target
     while (j >= 0 && arr[j] > target) {
+      // * 这一步相当远赋值，因为 arr[j] > target 所以target所处的位置肯定要被替换，所以提前赋值给 arr[j]
       arr[j + 1] = arr[j]
       j--
     }
@@ -47,5 +49,3 @@ function insertSort2(arr) {
 
   return arr
 }
-
-insertSort2([1, 4, 6, 9, 2, 0])
