@@ -28,4 +28,28 @@ function merge(left, right) {
   return result
 }
 
-module.exports = mergeSort
+module.exports = mergeSort3
+
+function mergeSort3(arr) {
+  if (arr.length <= 1) return arr
+
+  const mid = Math.floor(arr.length / 2)
+
+  const left = arr.slice(0, mid)
+  const right = arr.slice(mid)
+
+  return merge3(mergeSort3(left), mergeSort3(right))
+}
+
+function merge3(left, right) {
+  let result = []
+
+  while (left.length && right.length) {
+    left[0] < right[0] ? result.push(left.shift()) : result.push(right.shift())
+  }
+
+  left.length && result.push(...left)
+  right.length && result.push(...right)
+
+  return result
+}

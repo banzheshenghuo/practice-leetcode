@@ -17,7 +17,6 @@ function searchBound(nums, target) {
 
   while (left <= right) {
     const mid = ((left + right) / 2) | 0
-    debugger
     if (nums[mid] === target) {
       right = mid - 1
     } else if (nums[mid] > target) {
@@ -27,9 +26,9 @@ function searchBound(nums, target) {
     }
   }
 
-  return left === nums.length || !left ? -1 : left
+  return nums[left] === target ? left : -1
 }
 
 var data = [5, 7, 7, 8, 8, 10]
 
-console.log(searchBound(data, 8))
+console.log(searchBound(data, 6))

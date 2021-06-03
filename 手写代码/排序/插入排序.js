@@ -28,8 +28,6 @@ function insertSort(arr) {
   return sortArr
 }
 
-module.exports = insertSort2
-
 // 将数组分为2个区间，一个是有序，一个是无序的，每次从无序区间中去一个元素，按照顺序插入到有序的区间中
 function insertSort2(arr) {
   if (arr.length <= 1) return arr
@@ -45,6 +43,26 @@ function insertSort2(arr) {
       j--
     }
     arr[j + 1] = target
+  }
+
+  return arr
+}
+
+module.exports = insertSort3
+
+// 插入排序是将数据分为2个区间，一个排好序，一个未排序，每次从未排序的区间取一个元素插入到排好序的区间
+
+function insertSort3(arr) {
+  if (arr.length <= 1) return arr
+
+  for (let i = 1; i < arr.length; i++) {
+    let j = i
+    const target = arr[j]
+    while (j >= 1 && arr[j - 1] > target) {
+      arr[j] = arr[j - 1]
+      j--
+    }
+    arr[j] = target
   }
 
   return arr

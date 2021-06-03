@@ -54,8 +54,6 @@ function partition(arr, left, right) {
   return index
 }
 
-module.exports = quickSort2
-
 // 快排 选择一个基准值，遍历集合将整个集合分为小于该基准值和大于该基准值，然后对获取的2个集合在进行快排，这是一个递归的过程
 
 function quickSort2(arr) {
@@ -77,5 +75,7 @@ function quickSort2(arr) {
 
   return [...quickSort2(left), arr[mid], ...quickSort2(right)]
 }
+
+module.exports = quickSort2
 
 // 快排 借助二分的思想，先找基准值
